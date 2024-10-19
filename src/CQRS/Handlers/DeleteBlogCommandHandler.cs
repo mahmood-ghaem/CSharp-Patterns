@@ -1,4 +1,5 @@
 ﻿using CQRS.Models;
+using DataAccess;
 
 namespace CQRS.Handlers
 {

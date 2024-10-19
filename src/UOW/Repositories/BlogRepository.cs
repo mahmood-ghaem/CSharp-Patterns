@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DataAccess;
+using Microsoft.EntityFrameworkCore;
 using Models;
 
 namespace UOW.Repositories

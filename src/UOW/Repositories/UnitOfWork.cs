@@ -1,4 +1,6 @@
-﻿namespace UOW.Repositories
+﻿using DataAccess;
+
+namespace UOW.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
