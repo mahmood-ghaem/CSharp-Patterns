@@ -18,3 +18,16 @@ The Factory pattern is used to create objects without specifying the exact class
 
 6. Decorator Pattern
 The Decorator pattern allows behavior to be added to individual objects, dynamically, without affecting the behavior of other objects from the same class. This pattern is useful for extending functionalities in a flexible and reusable way.
+
+7. Unit of Work and Repository patterns
+   Positive Sides
+    Transaction Management: The Unit of Work pattern ensures that all database operations are executed within a single transaction, which helps maintain data consistency and integrity.
+    Abstraction: Both patterns provide a layer of abstraction between the data access logic and the business logic, making the code more modular and easier to maintain.
+    Testability: By abstracting the data access logic, these patterns make it easier to write unit tests for the business logic without needing to interact with the database.
+    Reusability: Repositories can be reused across different parts of the application, reducing code duplication.
+    Separation of Concerns: These patterns help separate the concerns of data access and business logic, leading to cleaner and more maintainable code.
+  Negative Sides
+    Complexity: Implementing these patterns can add complexity to the codebase, especially for smaller projects where the overhead might not be justified.
+    Performance Overhead: The abstraction layers can introduce some performance overhead, although this is usually minimal.
+    Learning Curve: Developers need to understand the patterns and how to implement them correctly, which can be a barrier for those new to these concepts.
+    Over-Engineering: For simple applications, using these patterns might be overkill and could lead to unnecessary complexity.
