@@ -11,7 +11,7 @@ namespace UOW
             _blogService = blogService;
         }
 
-        public async Task CreateBlog(string title, string content, int categoryId)
+        public async Task CreateBlog(string title, string content, Guid categoryId)
         {
             var blog = new Blog
             {
@@ -23,7 +23,7 @@ namespace UOW
             await _blogService.AddBlogAsync(blog);
         }
 
-        public async Task UpdateBlog(int id, string title, string content, int categoryId)
+        public async Task UpdateBlog(Guid id, string title, string content, Guid categoryId)
         {
             var blog = await _blogService.GetBlogByIdAsync(id);
             if (blog != null)
@@ -35,12 +35,12 @@ namespace UOW
             }
         }
 
-        public async Task DeleteBlog(int id)
+        public async Task DeleteBlog(Guid id)
         {
             await _blogService.DeleteBlogAsync(id);
         }
 
-        public async Task<Blog> GetBlogById(int id)
+        public async Task<Blog> GetBlogById(Guid id)
         {
             return await _blogService.GetBlogByIdAsync(id);
         }
@@ -56,7 +56,7 @@ namespace UOW
             await _blogService.AddBlogCategoryAsync(category);
         }
 
-        public async Task UpdateBlogCategory(int id, string name)
+        public async Task UpdateBlogCategory(Guid id, string name)
         {
             var category = await _blogService.GetBlogCategoryByIdAsync(id);
             if (category != null)
@@ -66,12 +66,12 @@ namespace UOW
             }
         }
 
-        public async Task DeleteBlogCategory(int id)
+        public async Task DeleteBlogCategory(Guid id)
         {
             await _blogService.DeleteBlogCategoryAsync(id);
         }
 
-        public async Task<BlogCategory> GetBlogCategoryById(int id)
+        public async Task<BlogCategory> GetBlogCategoryById(Guid id)
         {
             return await _blogService.GetBlogCategoryByIdAsync(id);
         }

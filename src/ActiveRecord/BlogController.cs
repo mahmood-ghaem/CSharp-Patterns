@@ -11,7 +11,7 @@ namespace ActiveRecord
             _options = options;
         }
 
-        public async Task CreateBlog(string title, string content, int categoryId)
+        public async Task CreateBlog(string title, string content, Guid categoryId)
         {
             var blog = new Blog(_options)
             {
@@ -23,7 +23,7 @@ namespace ActiveRecord
             await blog.AddAsync();
         }
 
-        public async Task UpdateBlog(int id, string title, string content, int categoryId)
+        public async Task UpdateBlog(Guid id, string title, string content, Guid categoryId)
         {
             var blog = new Blog(_options);
             blog = await Blog.GetByIdAsync(id);
@@ -36,7 +36,7 @@ namespace ActiveRecord
             }
         }
 
-        public async Task DeleteBlog(int id)
+        public async Task DeleteBlog(Guid id)
         {
             var blog = new Blog(_options);
             blog = await Blog.GetByIdAsync(id);
@@ -46,7 +46,7 @@ namespace ActiveRecord
             }
         }
 
-        public async Task<Blog> GetBlogById(int id)
+        public async Task<Blog> GetBlogById(Guid id)
         {
             var blog = new Blog(_options);
             return await Blog.GetByIdAsync(id);
@@ -64,7 +64,7 @@ namespace ActiveRecord
             await category.AddAsync();
         }
 
-        public async Task UpdateBlogCategory(int id, string name)
+        public async Task UpdateBlogCategory(Guid id, string name)
         {
             var category = new BlogCategory(_options);
             category = await BlogCategory.GetByIdAsync(id);
@@ -75,7 +75,7 @@ namespace ActiveRecord
             }
         }
 
-        public async Task DeleteBlogCategory(int id)
+        public async Task DeleteBlogCategory(Guid id)
         {
             var category = new BlogCategory(_options);
             category = await BlogCategory.GetByIdAsync(id);
@@ -85,7 +85,7 @@ namespace ActiveRecord
             }
         }
 
-        public async Task<BlogCategory> GetBlogCategoryById(int id)
+        public async Task<BlogCategory> GetBlogCategoryById(Guid id)
         {
             var category = new BlogCategory(_options);
             return await BlogCategory.GetByIdAsync(id);

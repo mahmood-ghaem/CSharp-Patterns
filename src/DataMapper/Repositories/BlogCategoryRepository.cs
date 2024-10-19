@@ -14,7 +14,7 @@ namespace DataMapper.Repositories
             _context = context;
         }
 
-        public async Task<BlogCategoryDto?> GetByIdAsync(int id)
+        public async Task<BlogCategoryDto?> GetByIdAsync(Guid id)
         {
             var category = await _context.BlogCategories.FindAsync(id);
             if (category == null)
@@ -56,7 +56,7 @@ namespace DataMapper.Repositories
             }
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(Guid id)
         {
             var category = await _context.BlogCategories.FindAsync(id);
             if (category != null)

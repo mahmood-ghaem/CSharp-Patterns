@@ -13,7 +13,7 @@ namespace UOW.Repositories
             _context = context;
         }
 
-        public async Task<Blog?> GetByIdAsync(int id)
+        public async Task<Blog?> GetByIdAsync(Guid id)
         {
             var blog = await _context.Blogs.Include(b => b.Category).FirstOrDefaultAsync(b => b.Id == id);
             return blog ?? throw new KeyNotFoundException($"Blog with ID {id} not found.");
@@ -36,7 +36,7 @@ namespace UOW.Repositories
             await Task.CompletedTask;
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(Guid id)
         {
             var blog = await _context.Blogs.FindAsync(id);
             if (blog != null)

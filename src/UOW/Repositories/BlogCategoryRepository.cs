@@ -13,7 +13,7 @@ namespace UOW.Repositories
             _context = context;
         }
 
-        public async Task<BlogCategory?> GetByIdAsync(int id)
+        public async Task<BlogCategory?> GetByIdAsync(Guid id)
         {
             return await _context.BlogCategories.FindAsync(id);
         }
@@ -34,7 +34,7 @@ namespace UOW.Repositories
             await Task.CompletedTask;
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(Guid id)
         {
             var category = await _context.BlogCategories.FindAsync(id);
             if (category != null)

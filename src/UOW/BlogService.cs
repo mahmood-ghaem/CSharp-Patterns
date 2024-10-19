@@ -12,7 +12,7 @@ namespace UOW
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<Blog> GetBlogByIdAsync(int id)
+        public async Task<Blog> GetBlogByIdAsync(Guid id)
         {
             return await _unitOfWork.Blogs.GetByIdAsync(id);
         }
@@ -34,13 +34,13 @@ namespace UOW
             await _unitOfWork.CompleteAsync();
         }
 
-        public async Task DeleteBlogAsync(int id)
+        public async Task DeleteBlogAsync(Guid id)
         {
             await _unitOfWork.Blogs.DeleteAsync(id);
             await _unitOfWork.CompleteAsync();
         }
 
-        public async Task<BlogCategory> GetBlogCategoryByIdAsync(int id)
+        public async Task<BlogCategory> GetBlogCategoryByIdAsync(Guid id)
         {
             return await _unitOfWork.BlogCategories.GetByIdAsync(id);
         }
@@ -62,7 +62,7 @@ namespace UOW
             await _unitOfWork.CompleteAsync();
         }
 
-        public async Task DeleteBlogCategoryAsync(int id)
+        public async Task DeleteBlogCategoryAsync(Guid id)
         {
             await _unitOfWork.BlogCategories.DeleteAsync(id);
             await _unitOfWork.CompleteAsync();

@@ -1,11 +1,9 @@
-﻿namespace Models
+﻿namespace EventSourcingCQRS.Events
 {
-    public class Blog
+    public class BlogCreatedEvent : Event
     {
-        public Guid Id { get; set; }
         public string? Title { get; set; }
         public string? Content { get; set; }
         public Guid CategoryId { get; set; }
-        public BlogCategory? Category { get; set; }
     }
 }

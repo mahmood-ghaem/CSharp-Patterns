@@ -4,7 +4,7 @@ namespace ActiveRecord
 {
     public class BlogCategory
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Name { get; set; }
 
         private static BlogDbContext _context;
@@ -14,7 +14,7 @@ namespace ActiveRecord
             _context = new BlogDbContext(options);
         }
 
-        public static async Task<BlogCategory> GetByIdAsync(int id)
+        public static async Task<BlogCategory> GetByIdAsync(Guid id)
         {
             return await _context.BlogCategories.FindAsync(id);
         }

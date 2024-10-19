@@ -23,7 +23,7 @@ namespace DataMapper
             _blogCategoryMapper = blogCategoryMapper;
         }
 
-        public async Task<Blog> GetBlogByIdAsync(int id)
+        public async Task<Blog> GetBlogByIdAsync(Guid id)
         {
             var blogDto = await _blogRepository.GetByIdAsync(id);
             return _blogMapper.MapToDomain(blogDto);
@@ -47,12 +47,12 @@ namespace DataMapper
             await _blogRepository.UpdateAsync(blogDto);
         }
 
-        public async Task DeleteBlogAsync(int id)
+        public async Task DeleteBlogAsync(Guid id)
         {
             await _blogRepository.DeleteAsync(id);
         }
 
-        public async Task<BlogCategory> GetBlogCategoryByIdAsync(int id)
+        public async Task<BlogCategory> GetBlogCategoryByIdAsync(Guid id)
         {
             var categoryDto = await _blogCategoryRepository.GetByIdAsync(id);
             return _blogCategoryMapper.MapToDomain(categoryDto);
@@ -76,7 +76,7 @@ namespace DataMapper
             await _blogCategoryRepository.UpdateAsync(categoryDto);
         }
 
-        public async Task DeleteBlogCategoryAsync(int id)
+        public async Task DeleteBlogCategoryAsync(Guid id)
         {
             await _blogCategoryRepository.DeleteAsync(id);
         }

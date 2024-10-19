@@ -26,7 +26,7 @@ namespace CQRS
             _getAllBlogsHandler = getAllBlogsHandler;
         }
 
-        public async Task CreateBlog(string title, string content, int categoryId)
+        public async Task CreateBlog(string title, string content, Guid categoryId)
         {
             var command = new CreateBlogCommand
             {
@@ -38,7 +38,7 @@ namespace CQRS
             await _createBlogHandler.Handle(command);
         }
 
-        public async Task UpdateBlog(int id, string title, string content, int categoryId)
+        public async Task UpdateBlog(Guid id, string title, string content, Guid categoryId)
         {
             var command = new UpdateBlogCommand
             {
@@ -51,13 +51,13 @@ namespace CQRS
             await _updateBlogHandler.Handle(command);
         }
 
-        public async Task DeleteBlog(int id)
+        public async Task DeleteBlog(Guid id)
         {
             var command = new DeleteBlogCommand { Id = id };
             await _deleteBlogHandler.Handle(command);
         }
 
-        public async Task<Blog> GetBlogById(int id)
+        public async Task<Blog> GetBlogById(Guid id)
         {
             var query = new GetBlogByIdQuery { Id = id };
             return await _getBlogByIdHandler.Handle(query);

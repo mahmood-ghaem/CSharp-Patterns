@@ -4,11 +4,11 @@ namespace UOW.Repositories
 {
     public interface IBlogCategoryRepository
     {
-        Task<BlogCategory?> GetByIdAsync(int id);
+        Task<BlogCategory?> GetByIdAsync(Guid id);
         Task<IEnumerable<BlogCategory>> GetAllAsync();
         Task AddAsync(BlogCategory category);
         Task UpdateAsync(BlogCategory category);
-        Task DeleteAsync(int id);
+        Task DeleteAsync(Guid id);
     }
 
 }

@@ -11,22 +11,22 @@ namespace CQRS
             _blogService = blogService;
         }
 
-        public async Task CreateBlog(string title, string content, int categoryId)
+        public async Task CreateBlog(string title, string content, Guid categoryId)
         {
             await _blogService.CreateBlog(title, content, categoryId);
         }
 
-        public async Task UpdateBlog(int id, string title, string content, int categoryId)
+        public async Task UpdateBlog(Guid id, string title, string content, Guid categoryId)
         {
             await _blogService.UpdateBlog(id, title, content, categoryId);
         }
 
-        public async Task DeleteBlog(int id)
+        public async Task DeleteBlog(Guid id)
         {
             await _blogService.DeleteBlog(id);
         }
 
-        public async Task<Blog> GetBlogById(int id)
+        public async Task<Blog> GetBlogById(Guid id)
         {
             return await _blogService.GetBlogById(id);
         }

@@ -14,7 +14,7 @@ namespace DataMapper.Repositories
             _context = context;
         }
 
-        public async Task<BlogDto?> GetByIdAsync(int id)
+        public async Task<BlogDto?> GetByIdAsync(Guid id)
         {
             var blog = await _context.Blogs.FindAsync(id);
 
@@ -65,7 +65,7 @@ namespace DataMapper.Repositories
             }
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(Guid id)
         {
             var blog = await _context.Blogs.FindAsync(id);
             if (blog != null)

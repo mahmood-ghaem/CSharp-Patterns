@@ -4,10 +4,10 @@ namespace ActiveRecord
 {
     public class Blog
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string? Title { get; set; }
         public string? Content { get; set; }
-        public int CategoryId { get; set; }
+        public Guid CategoryId { get; set; }
         public BlogCategory? Category { get; set; }
 
         private static BlogDbContext _context;
@@ -17,7 +17,7 @@ namespace ActiveRecord
             _context = new BlogDbContext(options);
         }
 
-        public static async Task<Blog> GetByIdAsync(int id)
+        public static async Task<Blog> GetByIdAsync(Guid id)
         {
             return await _context.Blogs.Include(b => b.Category).FirstOrDefaultAsync(b => b.Id == id);
         }
